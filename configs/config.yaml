@@ -1,0 +1,44 @@
+agent:
+  name: "AgentIA"
+  version: "2.0.0"  # Versión Open Source
+  language: "es"
+
+speech:
+  sample_rate: 16000
+  channels: 1
+  language: "es"
+  provider: "whisper-cpp" # whisper-cpp, whisper-api
+  whisper_path: "./whisper.cpp/main" # Ruta al ejecutable de whisper.cpp
+  model_path: "./models/ggml-base.bin" # Ruta al modelo de Whisper
+  api_url: "http://localhost:8000" # URL de API local de Whisper (si usas whisper-api)
+
+nlp:
+  model: "llama3.2:3b" # Modelos de Ollama: llama3.2, mistral, phi3, qwen2.5, etc.
+  max_tokens: 500
+  temperature: 0.7
+  ollama_url: "http://localhost:11434" # URL del servidor Ollama local
+
+learning:
+  enabled: true
+  learning_rate: 0.01
+  confidence_threshold: 0.7
+  save_interval: 100 # guardar después de N interacciones
+
+storage:
+  type: "sqlite" # sqlite, postgres, mysql
+  path: "./data/agent.db"
+  backup_enabled: true
+  backup_interval: 3600 # segundos
+
+logging:
+  level: "info" # debug, info, warn, error
+  file: "./logs/agent.log"
+  max_size: 10 # MB
+  max_backups: 5
+
+# Modelos recomendados para Ollama (ejecutar: ollama pull <modelo>)
+# - llama3.2:3b (rápido, 3GB RAM)
+# - llama3.2:1b (muy rápido, 1GB RAM)
+# - mistral:7b (buena calidad, 4GB RAM)
+# - phi3:mini (eficiente, 2GB RAM)
+# - qwen2.5:3b (multilingüe, 3GB RAM)

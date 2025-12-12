@@ -1,0 +1,40 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+agent
+
+# Test binaries
+*.test
+*.out
+
+# Go workspace file
+go.work
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Data files
+data/*.db
+data/*.db-*
+data/conversations/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+vendor/
